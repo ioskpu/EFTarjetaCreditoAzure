@@ -1,0 +1,91 @@
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-lg-8 offset-lg-2">
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="titulo">Tarjeta de credito</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-4">
+        <div class="col-lg-6">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="titulo">Agregar Tarjeta</h5>
+
+                    <form [formGroup]="form" (ngSubmit)="agregarTarjeta()">
+                        <div class="input-group input-group-lg mb-3">
+                            <span class="input-group-text">
+                                <i class="fa-solid fa-user"></i>
+                            </span>
+                            <div class="form-floating">
+                              <input formControlName="titular" type="text" class="form-control" id="floatingInputGroup1" placeholder="Titular">
+                              <label for="floatingInputGroup1">Titular</label>
+                            </div>
+                        </div>
+                        <div class="input-group input-group-lg mb-3">
+                            <span class="input-group-text">
+                                <i class="fa-solid fa-credit-card"></i>
+                            </span>
+                            <div class="form-floating">
+                              <input formControlName="numeroTarjeta" type="text" class="form-control" id="floatingInputGroup1" placeholder="Número de Tarjeta">
+                              <label for="floatingInputGroup1">Número de Tarjeta</label>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-7">
+                                <div class="input-group input-group-lg mb-3">
+                                    <span class="input-group-text">
+                                        <i class="fa-solid fa-calendar-days"></i>
+                                    </span>
+                                    <div class="form-floating">
+                                      <input formControlName="fechaExpiracion" type="text" class="form-control" id="floatingInputGroup1" placeholder="MM/AA">
+                                      <label for="floatingInputGroup1">MM/AA</label>
+                                    </div>
+                                </div>  
+                            </div>
+                            <div class="col-lg-5">
+                                <div class="input-group input-group-lg mb-3">
+                                    <span class="input-group-text">
+                                        <i class="fa-solid fa-calendar-days"></i>
+                                    </span>
+                                    <div class="form-floating">
+                                      <input formControlName="cvv" type="password" class="form-control" id="floatingInputGroup1" placeholder="CVV">
+                                      <label for="floatingInputGroup1">CVV</label>
+                                    </div>
+                                </div>  
+                            </div>
+                        </div>
+                        <div class="d-grid gap-2">
+                            <button type="submit" class="btn btn-success btn-lg"><i class="fa-solid fa-database"></i>&nbsp; Aceptar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="titulo">Listado de listTarjetas</h5>
+                    <table class="table">
+                        <tbody>
+                            <tr *ngFor="let tarjeta of listTarjetas">
+                                <td>{{tarjeta.titular}}</td>
+                                <td>{{tarjeta.numeroTarjeta}}</td>
+                                <td>{{tarjeta.fechaExpiracion}}</td>
+                                <td>
+                                    <i class="fa-regular fa-pen-to-square text-info"></i>
+                                </td>
+                                <td>
+                                    <i class="fa-solid fa-trash-can text-danger"></i>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
